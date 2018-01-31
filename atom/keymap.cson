@@ -1,0 +1,99 @@
+# Your keymap
+#
+# Atom keymaps work similarly to style sheets. Just as style sheets use
+# selectors to apply styles to elements, Atom keymaps use selectors to associate
+# keystrokes with events in specific contexts. Unlike style sheets however,
+# each selector can only be declared once.
+#
+# You can create a new keybinding in this file by typing "key" and then hitting
+# tab.
+#
+# Here's an example taken from Atom's built-in keymap:
+#
+# 'atom-text-editor':
+#   'enter': 'editor:newline'
+#
+# 'atom-workspace':
+#   'ctrl-shift-p': 'core:move-up'
+#   'ctrl-p': 'core:move-down'
+#
+# You can find more information about keymaps in these guides:
+# * https://atom.io/docs/latest/using-atom-basic-customization#customizing-key-bindings
+# * https://atom.io/docs/latest/behind-atom-keymaps-in-depth
+#
+# If you're having trouble with your keybindings not working, try the
+# Keybinding Resolver: `Cmd+.` on OS X and `Ctrl+.` on other platforms. See the
+# Debugging Guide for more information:
+# * https://atom.io/docs/latest/hacking-atom-debugging#check-the-keybindings
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# https://atom.io/docs/latest/using-atom-basic-customization#cson
+
+'.platform-darwin, .platform-darwin .command-palette atom-text-editor':
+  'F1': 'command-palette:toggle'
+
+
+# In insert-mode, hitting escape to close autocomplete popup result in normal-mode, but want to remain in insert-mode
+'atom-text-editor.vim-mode-plus.insert-mode.autocomplete-active':
+  'escape': 'autocomplete-plus:cancel'
+
+'body':
+  'ctrl-cmd-f': 'prettier:format'
+
+# splitting panes
+'body.platform-darwin':
+  'cmd-k k': 'pane:split-down-and-copy-active-item'
+  'cmd-k j': 'pane:split-up-and-copy-active-item'
+  'cmd-k h': 'pane:split-left-and-copy-active-item'
+  'cmd-k l': 'pane:split-right-and-copy-active-item'
+
+# choose-pane with -
+# 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+
+
+# cursor-history
+'atom-workspace':
+  'ctrl-i':     'cursor-history:next'
+  'ctrl-o':     'cursor-history:prev'
+  'ctrl-cmd-i': 'cursor-history:next-within-editor'
+  'ctrl-cmd-o': 'cursor-history:prev-within-editor'
+
+
+# From outside of narrow-editor
+# -------------------------
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+
+  '-': 'choose-pane:start'
+  'm m': 'choose-pane:focus-last-focused'
+
+  ', s': 'vim-mode-plus:surround'
+  ', d': 'vim-mode-plus:delete-surround-any-pair'
+  ', D': 'vim-mode-plus:delete-surround'
+  ', c': 'vim-mode-plus:change-surround'
+  'S': 'vim-mode-plus:surround-smart-word'
+
+  # For frequent uses, assign shorter keymap(non-2-step keymap).
+
+  'cmd-o': 'narrow:symbols-by-current-word' # quick preview function
+  'cmd-l': 'narrow:scan-by-current-word'
+  # 'enter': 'narrow:search-by-current-word'
+  # 'shift-cmd-g': 'narrow:search-by-current-word'
+
+  'shift-cmd-o': 'narrow:project-symbols-by-current-word'
+  'shift-cmd-r': 'narrow:project-symbols'
+
+  # assign consistently
+  'space f': 'narrow:fold'
+  'space o': 'narrow:symbols'
+  'space l': 'narrow:scan'
+  'space L': 'narrow:scan-by-current-word'
+  'space c': 'narrow:linter'
+  'space s': 'narrow:search'
+  'space S': 'narrow:search-by-current-word'
+  'space a': 'narrow:atom-scan'
+  'space A': 'narrow:atom-scan-by-current-word'
+  'space G': 'narrow:git-diff-all'
+  'space B': 'narrow:bookmarks'
+  'space p': 'narrow:search-current-project'

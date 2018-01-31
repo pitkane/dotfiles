@@ -1,0 +1,62 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# https://atom.io/docs/latest/using-atom-basic-customization#cson
+
+
+'.source.perl':
+    'ePages log':
+        'prefix': 'epages_log'
+        'body': """
+            if( ENABLE_LOGGING eq 'TRUE') {
+                LogDebug("($1.pm) ($2): ", $3);
+            }
+        """
+    'ePages method definition':
+        'prefix': 'epages_method_definition'
+        'body': """
+#===============================================================================
+# §function     $1
+# §state        $2public/private
+#-------------------------------------------------------------------------------
+# §syntax       $3
+#-------------------------------------------------------------------------------
+# §description  $4
+#-------------------------------------------------------------------------------
+# §input        $input | desc | type
+#               $input | desc | type
+#
+# §return       $return | desc | type
+#===============================================================================
+        """
+
+'.text.xml':
+    'translation (ePages)':
+        'prefix': 'ep_trans'
+        'body': """
+            <Translation Keyword="$1">$2</Translation>
+        """
+
+'.source.js':
+    'translation (ePages)':
+        'prefix': 'div'
+        'body': """
+          <div className="$1">$2</div>
+        """

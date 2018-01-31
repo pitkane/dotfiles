@@ -1,0 +1,41 @@
+filetype plugin indent on
+
+set nocompatible
+
+syntax on
+
+set backspace=indent,eol,start
+
+set clipboard=unnamed
+
+if $TMUX == ''
+	    set clipboard+=unnamed
+    endif
+
+    " Switch between splits using ctrl + hjkl
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H> " This doesn't work..
+
+  map <F8> :execute "!. /etc/default/epages6 && $PERL /srv/epages/eproot/Cartridges/DE_EPAGES/Object/Scripts/delete.pl -storename Store %"
+  map <F8> :execute "!. /etc/default/epages6 && $PERL /srv/epages/eproot/Cartridges/DE_EPAGES/Object/Scripts/import.pl -storename Store %"
+  map <F9> :execute "!. /etc/default/epages6 && $PERL /srv/epages/eproot/Cartridges/DE_EPAGES/Trigger/Scripts/import.pl -storename Store %"
+  map <F6> :execute "!. /etc/default/epages6 && $PERL -cw %"
+  "  map <F5> :execute "! /etc/init.d/epages6 restart_perl"
+  map <F5> :execute "! /etc/init.d/epages6 restart_perl && rm -rf /srv/epages/eproot/Shared/Static/*"
+
+call plug#begin('~/.vim/plugged')
+
+  Plug 'rakr/vim-one'
+
+call plug#end()
+
+let g:airline_theme='one'
+colorscheme one
+
+" tmux: enable mouse scrolling in vim instead of history buffer
+" https://superuser.com/questions/610114/tmux-enable-mouse-scrolling-in-vim-instead-of-history-buffer
+set mouse=a
+
+set background=dark " for the dark version

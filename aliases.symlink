@@ -1,0 +1,7 @@
+alias reload!="source ~/.zshrc"
+alias gitdiff="git difftool"
+alias difftool="git difftool"
+alias rn="react-native"
+alias ls="ls -GFlsh"
+alias rm='rm -i'
+alias tower='gittower'

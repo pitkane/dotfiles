@@ -1,0 +1,532 @@
+" vim: set fdm=marker :
+
+" Bundles "{{{
+
+" Neobundle init "{{{
+
+if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
+
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+" required
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+"}}}
+
+" Add or remove your Bundles here:
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-commentary'
+
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'bling/vim-airline'
+
+NeoBundle 'kshenoy/vim-signature'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'christoomey/vim-tmux-navigator'
+
+" Undo/Redo tree
+NeoBundle 'sjl/gundo.vim'
+
+" Zenroom
+NeoBundle 'junegunn/goyo.vim'
+NeoBundle 'amix/vim-zenroom2'
+
+NeoBundle 'morhetz/gruvbox'
+
+" MarkedOpen - Opens markdown files in Marked2 app
+NeoBundle 'itspriddle/vim-marked'
+
+" Save sessions 
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-session'
+"let g:session_autosave_periodic = 1
+"let g:session_autosave = 'yes'
+"let g:session_autoload = 'yes'
+let g:session_autoload = 'no'
+
+NeoBundle 'junegunn/vim-peekaboo'
+
+" Insert/Delete brackets in pairs
+" NeoBundle 'jiangmiao/auto-pairs'
+"NeoBundle 'tpope/vim-unimpaired'
+" NeoBundle 'scrooloose/syntastic'
+" MAYBE: 'bronson/vim-trailing-whitespace', 'sheerun/vim-polyglot'
+
+" Vim JS autocompletion with type hints "{{{
+NeoBundle 'marijnh/tern_for_vim'
+let g:tern_show_argument_hints = 'on_move'
+"}}}
+
+" Syntax definitions {{{
+
+NeoBundle 'sheerun/vim-polyglot'
+NeoBundle 'slava/vim-spacebars'
+"NeoBundle "pangloss/vim-javascript"
+
+"}}}
+
+" Unite files, buffers, command sources | Async source depends on vimproc {{{
+NeoBundle 'Shougo/unite.vim'
+
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
+
+" Outline source
+NeoBundle 'Shougo/unite-outline'
+" History/yank source
+NeoBundle 'Shougo/neoyank.vim'
+" MRU source
+NeoBundle 'Shougo/neomru.vim'
+" Tag source
+NeoBundle 'tsukkee/unite-tag'
+" Colorscheme source
+NeoBundle 'ujihisa/unite-colorscheme'
+
+"}}}
+
+" Required:
+call neobundle#end()
+filetype plugin indent on
+NeoBundleCheck
+
+"}}}
+
+" Essentials "{{{
+" Turns syntax highlighting on
+syntax enable
+
+" Numbers, can you imagine?
+set number
+set relativenumber
+
+" Extra info on the bottom
+set ruler
+
+" Highlight current line
+set cursorline
+
+" Map Space as an leader
+let mapleader = "\<Space>"
+
+" Disable visualbell
+set visualbell t_vb=
+
+"" Copy/Paste/Cut
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
+endif
+
+" ##Search tweaks {{{
+
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" Kill current search
+nnoremap <silent> <Leader>/ :nohlsearch<CR>
+
+"}}}
+
+" ##AutoCmd essentials{{{
+if has("autocmd")
+  " Enable file type detection
+  filetype on
+  filetype plugin indent on
+endif
+"}}}
+
+" Prefer spaces to tabs and set size to 2
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+
+set backspace=indent,eol,start
+
+
+" Allows to use mouse to move the cursor
+set mouse=a
+
+" Tweak the behavior of <Tab> in command mode
+set wildmenu
+set wildmode=longest:full,full
+
+" Indentation tweaks:
+" reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" dumb indent
+set autoindent " automatically set indent of new line
+set smartindent
+
+" No need to switch back to English in normal mode
+set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
+
+" Buffers tweaks
+" Allow to switch from changed buffer
+set hidden
+
+" Splits tweaks {{{
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" I want new splits to appear to the right and to the bottom of the current
+set splitbelow
+set splitright
+" }}}
+
+
+" Wrapping tweaks "{{{
+set wrap
+set wrapmargin=8 " wrap lines when coming within n characters from side"
+set showbreak=… " show ellipsis at breaking"
+set linebreak
+set textwidth=80
+set formatoptions=cq " format using textwidth, including comments and gq
+"}}}
+
+" I can type :help myself, thanks.
+noremap <F1> <Esc>
+
+" Save undo history persistently on disk, takes extra space "{{{
+if has('persistent_undo')         " persistend undo history
+  " create the directory if it doesn't exist
+  silent !mkdir ~/.vim/undo > /dev/null 2>&1
+  set undofile                  " Save undo's after file closes
+  set undodir=~/.vim/undo/      " where to save undo histories
+  set undolevels=100            " How many undos
+  set undoreload=3000           " number of lines to save for undo
+endif
+"}}}
+
+" Gaming swap files {{{
+
+" create the directory if it doesn't exist
+silent !mkdir ~/.vim/swap > /dev/null 2>&1
+set backupdir=~/.vim/swap/
+set directory=~/.vim/swap/
+
+"}}}
+"}}}
+
+" Airline settings "{{{
+
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+
+if exists("*fugitive#statusline")
+  set statusline+=%{fugitive#statusline()}
+endif
+
+" vim-airline
+let g:airline_theme = 'powerlineish'
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+if !exists('g:airline_powerline_fonts')
+  let g:airline#extensions#tabline#left_sep = ' '
+  let g:airline#extensions#tabline#left_alt_sep = '|'
+  let g:airline_left_sep          = '▶'
+  let g:airline_left_alt_sep      = '»'
+  let g:airline_right_sep         = '◀'
+  let g:airline_right_alt_sep     = '«'
+  let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
+  let g:airline#extensions#readonly#symbol   = '⊘'
+  let g:airline#extensions#linecolumn#prefix = '¶'
+  let g:airline#extensions#paste#symbol      = 'ρ'
+  let g:airline_symbols.linenr    = '␊'
+  let g:airline_symbols.branch    = '⎇'
+  let g:airline_symbols.paste     = 'ρ'
+  let g:airline_symbols.paste     = 'Þ'
+  let g:airline_symbols.paste     = '∥'
+  let g:airline_symbols.whitespace = 'Ξ'
+else
+  let g:airline#extensions#tabline#left_sep = ''
+  let g:airline#extensions#tabline#left_alt_sep = ''
+
+  " powerline symbols
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.readonly = ''
+  let g:airline_symbols.linenr = ''
+endif
+
+
+set laststatus=2
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
+" if has("gui_running")
+  " let g:airline_powerline_fonts=1
+  " Even special font for this crap
+  " set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+" endif
+
+" function! AirlineOverride(...)
+  " let g:airline_section_a = airline#section#create(['mode'])
+  " let g:airline_section_b = airline#section#create_left(['branch'])
+  " let g:airline_section_c = airline#section#create_left(['%f'])
+  " let g:airline_section_y = airline#section#create([])
+" endfunction
+" autocmd VimEnter * call AirlineOverride()
+
+"}}}
+
+" NERDTree configuration {{{
+let g:NERDTreeChDirMode=2
+let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+let g:NERDTreeShowBookmarks=1
+let g:nerdtree_tabs_focus_on_files=1
+let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+let g:NERDTreeWinSize = 25
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+
+"}}}
+
+" Unite {{{
+
+" Matcher settings
+call unite#filters#matcher_default#use(['matcher_fuzzy', 'matcher_hide_current_file'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+
+" Use ag if available
+if executable('ag')
+  let g:unite_source_grep_command='ag'
+  let g:unite_source_grep_default_opts='--nocolor --line-numbers --nogroup -S -C0'
+  let g:unite_source_grep_recursive_opt=''
+
+  " Set rec source command
+  let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
+endif
+
+" Custom profile
+call unite#custom#profile('default', 'context', {
+      \   'prompt': '» ',
+      \   'winheight': 15,
+      \ })
+
+" Add syntax highlighting
+let g:unite_source_line_enable_highlight=1
+
+" Custom unite menus
+let g:unite_source_menu_menus = {}
+
+" Utils menu
+let g:unite_source_menu_menus.utils = {
+      \     'description' : 'Utility commands',
+      \ }
+let g:unite_source_menu_menus.utils.command_candidates = [
+      \       ['Color picker', 'VCoolor'],
+      \       ['Run XMPFilter', 'Annotate'],
+      \       ['Format file', 'Format'],
+      \       ['Run file', 'Run'],
+      \       ['Generate Ctags', 'GenerateCT'],
+      \       ['Generate JS Ctags', 'GenerateJSCT'],
+      \       ['Show notes', 'Notes'],
+      \     ]
+
+" Git menu
+let g:unite_source_menu_menus.git = {
+      \     'description' : 'Git commands',
+      \ }
+let g:unite_source_menu_menus.git.command_candidates = [
+      \       ['Stage hunk', 'GitGutterStageHunk'],
+      \       ['Unstage hunk', 'GitGutterRevertHunk'],
+      \       ['Stage', 'Gwrite'],
+      \       ['Status', 'Gstatus'],
+      \       ['Diff', 'Gvdiff'],
+      \       ['Commit', 'Gcommit --verbose'],
+      \       ['Revert', 'Gread'],
+      \       ['Log', 'Glog'],
+      \       ['Visual Log', 'Gitv'],
+      \     ]
+
+" Plug menu
+let g:unite_source_menu_menus.plug = {
+      \     'description' : 'Plugin management commands',
+      \ }
+let g:unite_source_menu_menus.plug.command_candidates = [
+      \       ['Install plugins', 'PlugInstall'],
+      \       ['Update plugins', 'PlugUpdate'],
+      \       ['Clean plugins', 'PlugClean'],
+      \       ['Upgrade vim-plug', 'PlugUpgrade'],
+      \     ]
+
+" My unite menu
+let g:unite_source_menu_menus.unite = {
+      \     'description' : 'My Unite sources',
+      \ }
+let g:unite_source_menu_menus.unite.command_candidates = [
+      \       ['Unite MRUs', 'call utils#uniteMRUs()'],
+      \       ['Unite buffers', 'call utils#uniteBuffers()'],
+      \       ['Unite file browse', 'call utils#uniteFileBrowse()'],
+      \       ['Unite file search', 'call utils#uniteFileRec()'],
+      \       ['Unite grep', 'call utils#uniteGrep()'],
+      \       ['Unite history', 'call utils#uniteHistory()'],
+      \       ['Unite line search', 'call utils#uniteLineSearch()'],
+      \       ['Unite menu', 'call utils#uniteCustomMenu()'],
+      \       ['Unite registers', 'call utils#uniteRegisters()'],
+      \       ['Unite snippets', 'call utils#uniteSnippets()'],
+      \       ['Unite sources', 'call utils#uniteSources()'],
+      \       ['Unite file tags (symbols)', 'call utils#uniteOutline()'],
+      \       ['Unite tags', 'call utils#uniteTags()'],
+      \       ['Unite windows', 'call utils#uniteWindows()'],
+      \       ['Unite yank history', 'call utils#uniteYankHistory()'],
+      \       ['Unite jump history', 'call utils#uniteJumps()'],
+      \     ]
+
+"}}}
+
+" Themes "{{{
+
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
+
+"}}}
+
+" Abbreviations {{{
+
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qall qall
+
+"}}}
+
+" Custom mappings for the unite buffer {{{
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " Enable navigation with control-j and control-k in insert mode
+  imap <silent> <buffer> <C-j> <Plug>(unite_select_next_line)
+  imap <silent> <buffer> <C-k> <Plug>(unite_select_previous_line)
+  " Runs 'splits' action by <C-s> and <C-v>
+  imap <silent> <buffer> <expr> <C-s> unite#do_action('split')
+  imap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+  " Exit with escape
+  nmap <silent> <buffer> <ESC> <Plug>(unite_exit)
+  " Mark candidates
+  vmap <silent> <buffer> m <Plug>(unite_toggle_mark_selected_candidates)
+  nmap <silent> <buffer> m <Plug>(unite_toggle_mark_current_candidate)
+endfunction
+
+" Search files recursively ([o]pen file)
+nnoremap <silent> <leader>o :call utils#uniteFileRec()<CR>
+" Browse [f]iles in CWD
+nnoremap <silent> <leader>f :call utils#uniteFileBrowse()<CR>
+" [U]nite sources
+nnoremap <silent> <leader>u :call utils#uniteSources()<CR>
+" Search between open files - [b]uffers
+nnoremap <silent> <leader>b :call utils#uniteBuffers()<CR>
+" Search in current file ou[t]line (tags in current file)
+nnoremap <silent> <leader>t :call utils#uniteOutline()<CR>
+" Search for term - [g]rep
+nnoremap <silent> <leader>g :call utils#uniteGrep()<CR>
+" Search in edit [h]istory
+nnoremap <silent> <leader>h :call utils#uniteHistory()<CR>
+" Search in [l]ines on current buffer
+nnoremap <silent> <leader>l :call utils#uniteLineSearch()<CR>
+" Search in [y]ank history
+nnoremap <silent> <leader>y :call utils#uniteYankHistory()<CR>
+" Search in [r]egisters
+nnoremap <silent> <leader>r :call utils#uniteRegisters()<CR>
+" Search in opened [w]indow splits
+nnoremap <silent> <leader>w :call utils#uniteWindows()<CR>
+" Search in ultisnips [s]nippets
+nnoremap <silent> <leader>s :call utils#uniteSnippets()<CR>
+" Search in latest [j]ump positions
+nnoremap <silent> <leader>j :call utils#uniteJumps()<CR>
+" My custom unite [m]enu with commonly used commands not mapped to keys
+nnoremap <silent> <leader>m :call utils#uniteCustomMenu()<CR>
+
+"}}}
+
+" Leader mappings {{{
+
+" Show/hide invisibles by <leader>l
+nnoremap <leader>l :set list!<CR>
+" Toggle spelling on/off
+nnoremap <silent> <leader>s :set spell!<CR>
+" Tab movements
+nnoremap <leader>m :tabn<CR>
+nnoremap <leader>n :tabp<CR>
+" Save file quickly
+nnoremap <leader>w :w<CR>
+" Quickly cd to directory
+nnoremap <leader>d :Unite -start-insert directory -profile-name=files<CR>
+" Paste from the yank history
+nnoremap <leader>p :Unite -start-insert history/yank<CR>
+" Trigger the git menu
+nnoremap <leader>g :Unite -silent -start-insert menu:git<CR>
+" Open all menus with useful stuff
+nnoremap <leader>j :Unite -silent -start-insert menu:all menu:git<CR>
+" Select across all buffers
+nnoremap <leader>b :Unite -start-insert buffer<CR>
+" Zenroom
+nnoremap <silent> <leader>z :Goyo<cr>
+"" Split
+noremap <Leader>h :<C-u>split<CR>
+noremap <Leader>v :<C-u>vsplit<CR>
+"" Close buffer
+noremap <leader>c :bd<CR>
+
+" }}}
+
+" Other mappings {{{
+
+" clipboard yank, paste and cut
+noremap YY "+y<CR>
+noremap PP "+gP<CR>
+noremap XX "+x<CR>
+
+" noremap <Up> <NOP>
+" noremap <Down> <NOP>
+" noremap <Left> <NOP>
+" noremap <Right> <NOP>
+
+noremap <C-n> :NERDTreeToggle<CR>
+
+"}}}
+
+" Experimental stuff {{{
+
+:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
+"}}}

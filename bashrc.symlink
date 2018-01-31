@@ -1,0 +1,71 @@
+# .bashrc
+
+# User specific aliases and functions
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+HISTSIZE=5000
+HISTFILESIZE=10000
+shopt -s histappend
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+export TERM=xterm-256color
+
+. /etc/default/epages6
+
+alias cvsstatus_command='cvs -q status | grep "^[?F]" | grep -v "Up-to-date" | grep -v "\.so" | grep -v "\.[c]*project"'
+
+alias cvsstatus_color='nawk '"'"'BEGIN { arr["Needs Merge"] = "0;31"; arr["Needs Patch"] = "1;31"; arr["conflicts"] = "1;33"; arr["Locally Modified"] = "0;33"; arr["Locally Added"] = "0;32" } { l = $0; for (pattern in arr) { gsub(".*" pattern ".*", "\033[" arr[pattern] "m&\033[0m", l); } print l; }'"'"
+
+alias cvsstatus='cvsstatus_command'
+
+alias reload!='source ~/.bashrc'
+alias bashrc='vim ~/.bashrc'
+
+alias gps='git push'
+alias gp='git push'
+alias gpl='git pull'
+alias gpd='git pull origin'
+alias gf='git fetch'
+alias gfa='git fetch --all'
+alias gs='git status'
+alias gst='git status'
+alias ga='git add'
+alias gaa='git add --all'
+alias gb='git branch'
+alias gba='git branch --all'
+alias gc='git commit'
+alias gcl='git clean -fd'
+alias gca='git commit --all'
+alias grh='git reset --hard'
+alias gd='git diff'
+alias go='git checkout'
+alias gco='git checkout'
+alias got='git'
+alias get='git'
+
+alias glgr='git log --color --graph --pretty=format:"%h %s" --graph'
+alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gpsc='git push origin $(git rev-parse --abbrev-ref HEAD)'
+alias gmm='git rev-parse --abbrev-ref HEAD | pbcopy; git checkout develop; git pull origin $(pbpaste);'
+alias gpm='git pull origin develop'
+alias gm='git merge --no-ff'
+alias venv='source venv/bin/activate'
+alias gdl="git branch -D $1"
+alias gdlr='git push origin --delete $1'
+alias gdla='git for-each-ref --format="%(refname:short)" refs/heads/f_qa\* | xargs git branch -D'
+
+
+export ANDROID_HOME=~/Library/Android/sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

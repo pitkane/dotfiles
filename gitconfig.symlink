@@ -1,0 +1,14 @@
+[push]
+    default = simple
+[user]
+	name = pitkane
+	email = mikko@mbit.fi
+[merge]
+	tool = code
+
+[diff]
+    tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
