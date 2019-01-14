@@ -1,26 +1,12 @@
 {
   "workbench.iconTheme": "vscode-icons",
   "workbench.colorTheme": "One Dark Pro",
-  "window.zoomLevel": 0,
-  "editor.fontSize": 14,
   "editor.fontFamily": "Hasklig, Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
+  // "editor.fontWeight": "bold",
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.formatOnSave": true,
   "editor.wordWrapColumn": 120,
-  // "workbench.fontAliasing": "antialiased",
-  "[html]": {
-    "editor.formatOnSave": false,
-    "editor.formatOnPaste": false
-  },
-  "[xml]": {
-    "editor.formatOnSave": false,
-    "editor.formatOnPaste": false
-  },
-  "[python]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": false
-  },
   "editor.formatOnPaste": false,
   "editor.renderWhitespace": "none",
   "search.exclude": {
@@ -31,96 +17,45 @@
     "**/tmp": true,
     "**/coverage": true,
     "**/dist": true,
+    "**/build": true,
     "**/logs": true,
     "**/package-lock.json": true
   },
   "emmet.syntaxProfiles": {
     "javascript": "jsx"
   },
-  "editor.rulers": [
-    80,
-    100
-  ],
+  "editor.rulers": [80, 100],
   "files.associations": {
-    "*.template": "mustache",
-    "*.pm": "perl"
+    "*.template": "mustache"
   },
   "vsicons.projectDetection.autoReload": true,
   "files.trimTrailingWhitespace": true,
   "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.DS_Store": true,
-    "**/node_modules": true,
-    "**/.idea": true,
-    "**/build": true,
-    "**/.vscode": true,
-    "**/yarn.lock": true,
-    "**/tmp": true,
     "**/__pycache__": true,
-    "**/.vstags": true,
+    "**/.cache": true,
     "**/.chrome": true,
-    "**/dist": true,
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.idea": true,
+    "**/.svn": true,
+    "**/.vscode": true,
+    "**/.vstags": true,
+    "**/node_modules": true,
+    "**/tmp": true,
+    "**/yarn.lock": true
   },
+  "files.defaultLanguage": "markdown",
   "editor.renderControlCharacters": false,
   "vim.overrideCopy": false,
   "editor.fontLigatures": false,
   "editor.cursorBlinking": "solid",
   "files.insertFinalNewline": true,
-  // "vim.disableAnnoyingNeovimMessage": true,
-  // "perltidy.additionalArguments": ["-l=140"],
-  // "perl.perltidy": "perltidy",
   "editor.minimap.enabled": false,
-  "markdown.preview.scrollPreviewWithEditorSelection": false,
   "markdown.preview.markEditorSelection": false,
   "workbench.startupEditor": "newUntitledFile",
   "html.format.indentHandlebars": true,
-  "jest.pathToJest": "npm test --",
   "vim.leader": "<space>",
   "vim.hlsearch": true,
-  "vim.otherModesKeyBindings": [],
-  "vim.otherModesKeyBindingsNonRecursive": [
-    {
-      "before": [
-        "<C-n>"
-      ],
-      "after": [],
-      "commands": [
-        {
-          "command": ":nohl",
-          "args": []
-        }
-      ]
-    },
-    {
-      "before": [
-        "leader",
-        "h"
-      ],
-      "after": [],
-      "commands": [
-        {
-          "command": "workbench.action.focusPreviousGroup",
-          "args": []
-        }
-      ]
-    },
-    {
-      "before": [
-        "leader",
-        "l"
-      ],
-      "after": [],
-      "commands": [
-        {
-          "command": "workbench.action.focusNextGroup",
-          "args": []
-        }
-      ]
-    }
-  ],
-  "prettier.printWidth": 100,
-  "jest.enableCodeLens": false,
   "python.venvPath": "~/.virtualenvs",
   "python.pythonPath": "python3",
   "workbench.editor.tabSizing": "shrink",
@@ -136,4 +71,31 @@
   "pasteImage.path": "${projectRoot}/images",
   "pasteImage.basePath": "${projectRoot}",
   "pasteImage.prefix": "/",
+  "workbench.editor.enablePreview": false,
+  "markdownlint.config": {
+    "default": true,
+    "MD030": false
+  },
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "gitlens.historyExplorer.enabled": true,
+  "window.clickThroughInactive": false,
+  "editor.showFoldingControls": "always",
+  "files.autoSave": "onFocusChange",
+  "debug.toolBarLocation": "floating",
+  "editor.hover.delay": 300,
+  "eslint.alwaysShowStatus": true,
+  "breadcrumbs.enabled": true,
+  "workbench.editor.closeEmptyGroups": false,
+  "markdownlint.run": "onSave",
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "eslint.options": {
+    "debug": true
+  },
+  "window.zoomLevel": 0,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "gitlens.views.fileHistory.enabled": true,
+  "gitlens.views.lineHistory.enabled": true,
+  "colorize.ignore_search_variables_info": true
 }
