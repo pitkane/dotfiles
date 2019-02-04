@@ -18,8 +18,6 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 export TERM=xterm-256color
 
-. /etc/default/epages6
-
 alias cvsstatus_command='cvs -q status | grep "^[?F]" | grep -v "Up-to-date" | grep -v "\.so" | grep -v "\.[c]*project"'
 
 alias cvsstatus_color='nawk '"'"'BEGIN { arr["Needs Merge"] = "0;31"; arr["Needs Patch"] = "1;31"; arr["conflicts"] = "1;33"; arr["Locally Modified"] = "0;33"; arr["Locally Added"] = "0;32" } { l = $0; for (pattern in arr) { gsub(".*" pattern ".*", "\033[" arr[pattern] "m&\033[0m", l); } print l; }'"'"
@@ -61,11 +59,3 @@ alias venv='source venv/bin/activate'
 alias gdl="git branch -D $1"
 alias gdlr='git push origin --delete $1'
 alias gdla='git for-each-ref --format="%(refname:short)" refs/heads/f_qa\* | xargs git branch -D'
-
-
-export ANDROID_HOME=~/Library/Android/sdk
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
