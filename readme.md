@@ -3,6 +3,7 @@
 git clone git@github.com:pitkane/dotfiles.git .dotfiles
 
 ln -s ~/.dotfiles/zshrc.symlink ~/.zshrc
+ln -s ~/.dotfiles/aliases.symlink ~/.aliases
 
 ln -s ~/.dotfiles/bashrc.symlink ~/.bashrc
 
@@ -23,3 +24,4 @@ sshconfig
 ## vscode 
 
 ln -s ~/.dotfiles/vscode/settings.json $HOME/Library/Application\ Support/Code/User
+ln -s ~/.dotfiles/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User
