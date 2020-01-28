@@ -13,5 +13,8 @@ alias cd..='cd ..'
 
 alias portainer='docker run -d --restart unless-stopped -p 9001:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer'
 alias watchtower='docker run -d --restart unless-stopped --name watchtower -v /var/run/docker.sock:/var/run/docker.sock v2tec/watchtower'
+alias postgres-docker='docker run --name postgres -d -p 5432:5432 --restart unless-stopped postgres'
+alias redis-docker='docker run --name redis -d -p 6379:6379 --restart unless-stopped redis'
 
 alias gta='git for-each-ref --sort=taggerdate --format "%(refname) %(taggerdate)" refs/tags'
+
