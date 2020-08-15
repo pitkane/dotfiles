@@ -20,14 +20,6 @@ nnoremap <C-H> <C-W><C-H> " This doesn't work..
 
 command Wq :wq
 
-
-  map <F8> :execute "!. /etc/default/epages6 && $PERL /srv/epages/eproot/Cartridges/DE_EPAGES/Object/Scripts/delete.pl -storename Store %"
-  map <F8> :execute "!. /etc/default/epages6 && $PERL /srv/epages/eproot/Cartridges/DE_EPAGES/Object/Scripts/import.pl -storename Store %"
-  map <F9> :execute "!. /etc/default/epages6 && $PERL /srv/epages/eproot/Cartridges/DE_EPAGES/Trigger/Scripts/import.pl -storename Store %"
-  map <F6> :execute "!. /etc/default/epages6 && $PERL -cw %"
-  "  map <F5> :execute "! /etc/init.d/epages6 restart_perl"
-  map <F5> :execute "! /etc/init.d/epages6 restart_perl && rm -rf /srv/epages/eproot/Shared/Static/*"
-
 call plug#begin('~/.vim/plugged')
 
   Plug 'rakr/vim-one'

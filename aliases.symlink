@@ -18,3 +18,6 @@ alias redis-docker='docker run --name redis -d -p 6379:6379 --restart unless-sto
 
 alias gta='git for-each-ref --sort=taggerdate --format "%(refname) %(taggerdate)" refs/tags'
 
+alias flipper='open /Users/mikkopitkanen/code/clone/flipper/dist/mac/Flipper.app'
+
+alias gr="git for-each-ref --sort=-committerdate refs/heads/ --format='%(authordate:short) %(color:red)%(objectname:short) %(color:blue)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))' --count=10"
