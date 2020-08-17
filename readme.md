@@ -3,6 +3,7 @@
 git clone git@github.com:pitkane/dotfiles.git .dotfiles
 
 ln -s ~/.dotfiles/zshrc.symlink ~/.zshrc
+
 ln -s ~/.dotfiles/aliases.symlink ~/.aliases
 
 ln -s ~/.dotfiles/bashrc.symlink ~/.bashrc
