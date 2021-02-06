@@ -1,8 +1,15 @@
+ZSH_DISABLE_COMPFIX=true
+
+zmodload zsh/zprof
+
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/mikkopitkanen/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -62,7 +69,28 @@ ZSH_THEME="dracula"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions autojump history-substring-search zsh-syntax-highlighting)
+
+# before
+# plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+
+# new
+# plugins=(osx git zsh-autosuggestions zsh-syntax-highlighting zsh-nvm docker kubectl)
+plugins=(zsh-nvm git zsh-autosuggestions zsh-syntax-highlighting docker)
+
+### Fix slowness of pastes with zsh-syntax-highlighting.zsh
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+### Fix slowness of pastes
+
+# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,9 +146,9 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # alias cat="bat"
 # alias ccat="cat"
@@ -136,17 +164,23 @@ export PATH="$HOME/.serverless/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/pitkane/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/Users/pitkane/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/pitkane/opt/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/usr/local/anaconda3/bin:$PATH"
+        export PATH="/Users/pitkane/opt/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-export PATH=/Users/mikkopitkanen/.pyenv/versions/3.7.2/bin:$PATH
+export PATH=/Users/pitkane/.pyenv/versions/3.7.2/bin:$PATH
+
+# Created by `userpath` on 2021-01-08 09:30:17
+export PATH="$PATH:/Users/pitkane/.local/bin"
+
+# psql
+export PATH="$PATH:/usr/local/Cellar/libpq/13.1/bin/"

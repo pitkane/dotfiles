@@ -1,7 +1,7 @@
 [push]
     default = simple
 [user]
-	name = Mikko Pitkänen
+	name = Mikko Pitkä̈nen
 	email = mikko@mbit.fi
 [merge]
 	tool = code

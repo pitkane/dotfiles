@@ -21,3 +21,6 @@ alias gta='git for-each-ref --sort=taggerdate --format "%(refname) %(taggerdate)
 alias flipper='open /Users/mikkopitkanen/code/clone/flipper/dist/mac/Flipper.app'
 
 alias gr="git for-each-ref --sort=-committerdate refs/heads/ --format='%(authordate:short) %(color:red)%(objectname:short) %(color:blue)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))' --count=10"
+
+alias remove-dstore='find . -name '.DS_Store' -type f -delete'
+alias remove-node-modules-from-current-directory='find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +'

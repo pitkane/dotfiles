@@ -1,0 +1,78 @@
+[
+  {
+    "key": "alt+space",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+-",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+cmd+7",
+    "command": "-editor.action.commentLine",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+alt+cmd+up",
+    "command": "workbench.action.zoomIn"
+  },
+  {
+    "key": "cmd+[Minus]",
+    "command": "-workbench.action.zoomIn"
+  },
+  {
+    "key": "ctrl+alt+cmd+down",
+    "command": "workbench.action.zoomOut"
+  },
+  {
+    "key": "cmd+-",
+    "command": "-workbench.action.zoomOut"
+  },
+  { "key": "cmd+1", "command": "workbench.action.openEditorAtIndex1" },
+  { "key": "cmd+2", "command": "workbench.action.openEditorAtIndex2" },
+  { "key": "cmd+3", "command": "workbench.action.openEditorAtIndex3" },
+  { "key": "cmd+4", "command": "workbench.action.openEditorAtIndex4" },
+  { "key": "cmd+5", "command": "workbench.action.openEditorAtIndex5" },
+  { "key": "cmd+6", "command": "workbench.action.openEditorAtIndex6" },
+  { "key": "cmd+7", "command": "workbench.action.openEditorAtIndex7" },
+  { "key": "cmd+8", "command": "workbench.action.openEditorAtIndex8" },
+  { "key": "cmd+9", "command": "workbench.action.openEditorAtIndex9" },
+  { "key": "ctrl+1", "command": "workbench.action.focusFirstEditorGroup" },
+  { "key": "ctrl+2", "command": "workbench.action.focusSecondEditorGroup" },
+  {
+    "key": "ctrl+3",
+    "command": "workbench.action.focusThirdEditorGroup"
+  },
+  {
+    "key": "shift+cmd+-",
+    "command": "editor.action.blockComment",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+a",
+    "command": "-editor.action.blockComment",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+numpad_subtract",
+    "command": "-workbench.action.zoomOut"
+  },
+  {
+    "key": "shift+cmd+-",
+    "command": "-workbench.action.zoomOut"
+  },
+  {
+    "key": "shift+cmd+0",
+    "command": "-workbench.action.zoomIn"
+  },
+  {
+    "key": "cmd+numpad_add",
+    "command": "-workbench.action.zoomIn"
+  },
+  {
+    "key": "cmd+numpad0",
+    "command": "-workbench.action.zoomReset"
+  }
+]

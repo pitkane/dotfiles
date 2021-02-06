@@ -1,0 +1,128 @@
+{
+  "workbench.colorTheme": "One Dark Pro",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnPaste": false,
+  "search.exclude": {
+    "node_modules": true,
+    "package-lock.json": true,
+    "**/bower_components": true,
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/tmp": true,
+    "**/coverage": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/logs": true,
+    "**/package-lock.json": true
+  },
+
+  "editor.fontFamily": "Hasklig, Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
+  "editor.wordWrapColumn": 120,
+  "editor.renderWhitespace": "all",
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx"
+  },
+  "editor.rulers": [80, 120],
+  "files.associations": {
+    "*.template": "mustache"
+  },
+
+  "files.trimTrailingWhitespace": true,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.cache": true,
+    "**/.chrome": true,
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.idea": true,
+    "**/.svn": true,
+    "**/.vscode": true,
+    "**/.vstags": true,
+    "**/node_modules": true,
+    "**/tmp": true,
+    "**/yarn.lock": true
+  },
+
+  "files.defaultLanguage": "markdown",
+  "vim.overrideCopy": false,
+
+  "editor.fontLigatures": false,
+  "editor.cursorBlinking": "solid",
+  "files.insertFinalNewline": true,
+  "editor.minimap.enabled": false,
+  "markdown.preview.markEditorSelection": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "html.format.indentHandlebars": true,
+  "vim.leader": "<space>",
+  "vim.hlsearch": true,
+  "workbench.editor.tabSizing": "shrink",
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+    }
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "typescript"
+    },
+    {
+      "language": "typescriptreact"
+    }
+  ],
+  "markdown.preview.scrollEditorWithPreview": false,
+  "workbench.editor.enablePreview": false,
+  "markdownlint.config": {
+    "default": true,
+    "MD030": false,
+    "MD024": false
+  },
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "window.clickThroughInactive": false,
+  "editor.showFoldingControls": "always",
+  "files.autoSave": "off",
+  "debug.toolBarLocation": "floating",
+
+  "editor.hover.delay": 300,
+  "breadcrumbs.enabled": true,
+  "workbench.editor.closeEmptyGroups": false,
+  "markdownlint.run": "onSave",
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "window.zoomLevel": 0,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "gitlens.views.fileHistory.enabled": true,
+  "gitlens.views.lineHistory.enabled": true,
+  "workbench.settings.useSplitJSON": true,
+  "workbench.settings.editor": "json",
+  "typescript.suggest.autoImports": false,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "python.jediEnabled": false,
+  "git.autofetch": true,
+  "python.venvPath": " ~/anaconda3/envs",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "terminal.integrated.scrollback": 5000,
+  "debug.inlineValues": true,
+  "editor.fontSize": 14,
+  "python.pythonPath": "/usr/local/anaconda3/envs/practical/bin/python"
+}
