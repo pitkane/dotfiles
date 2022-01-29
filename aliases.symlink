@@ -24,3 +24,7 @@ alias gr="git for-each-ref --sort=-committerdate refs/heads/ --format='%(authord
 
 alias remove-dstore='find . -name '.DS_Store' -type f -delete'
 alias remove-node-modules-from-current-directory='find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +'
+
+alias python='python3'
+alias pip='pip3'
+

@@ -2,13 +2,12 @@
   "workbench.colorTheme": "One Dark Pro",
 
   "editor.tabSize": 2,
-  "editor.insertSpaces": true,
-  "editor.formatOnSave": true,
+  "editor.insertSpaces": false,
   "editor.rulers": [120],
   "editor.cursorBlinking": "solid",
   "editor.minimap.enabled": false,
   "editor.fontSize": 12,
-
+  "editor.lineHeight": 22,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.settings.editor": "json",
 
@@ -22,17 +21,17 @@
   "vim.hlsearch": true,
 
   "search.exclude": {
-    "node_modules": true,
-    "package-lock.json": true,
-    "**/bower_components": true,
-    "**/.git": true,
     "**/.DS_Store": true,
-    "**/tmp": true,
+    "**/.git": true,
+    "**/bower_components": true,
+    "**/build": true,
     "**/coverage": true,
     "**/dist": true,
-    "**/build": true,
     "**/logs": true,
-    "**/package-lock.json": true
+    "**/package-lock.json": true,
+    "**/tmp": true,
+    "node_modules": true,
+    "package-lock.json": true
   },
 
   "files.exclude": {
@@ -41,14 +40,19 @@
     "**/.chrome": true,
     "**/.DS_Store": true,
     "**/.git": true,
+    "**/.gitignore": true,
     "**/.idea": true,
     "**/.svn": true,
     "**/.vstags": true,
     "**/node_modules": true,
     "**/tmp": true,
-    "**/yarn.lock": true
+    "**/yarn.lock": true,
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
   },
-
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -56,11 +60,113 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "window.zoomLevel": 0,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "cSpell.userWords": [
+    "antd",
+    "apibox",
+    "apise",
+    "apisi",
+    "browserslist",
+    "callgiving",
+    "ccxt",
+    "certificatemanager",
+    "cloudwatchlogs",
+    "completing",
+    "confget",
+    "confgetrsp",
+    "confinfo",
+    "confschemgetrsp",
+    "confupdrsp",
+    "DDTHH",
+    "deduplication",
+    "DOCKERHUB",
+    "evosessionid",
+    "factor",
+    "fargate",
+    "firestore",
+    "formik",
+    "gevent",
+    "HAPI",
+    "header",
+    "immer",
+    "ispresent",
+    "JSESSIONID",
+    "kcecpuc",
+    "kone",
+    "koneapi",
+    "leovegas",
+    "microservices",
+    "mikko",
+    "mosquitto",
+    "MQTT",
+    "MSSZ",
+    "nen",
+    "nextjs",
+    "nivo",
+    "parallelization",
+    "pfif",
+    "Pitk",
+    "Pitkänen",
+    "postgres",
+    "rebalance",
+    "reduxjs",
+    "relocator",
+    "robotcall",
+    "RYUK",
+    "sasl",
+    "scipy",
+    "Sider",
+    "subprotocol",
+    "talib",
+    "testcontainers",
+    "TODOOOO",
+    "unencrypted",
+    "uuidv",
+    "Vercel",
+    "wombatpowered",
+    "xlsxwriter"
+  ],
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "python.showStartPage": false,
+
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.editor.untitled.hint": "hidden",
+  "editor.cursorStyle": "line",
+  "editor.lineNumbers": "on",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+
+  "window.zoomLevel": 1,
+  "workbench.editor.enablePreviewFromQuickOpen": true,
+  "workbench.editor.enablePreview": false,
+  "go.formatTool": "gofmt",
+  "terminal.integrated.inheritEnv": false,
+  "search.useGlobalIgnoreFiles": true,
+  "oneDarkPro.italic": false,
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "cSpell.enabled": false,
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform"
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }

@@ -1,7 +1,7 @@
 [push]
     default = simple
 [user]
-	name = Mikko Pitkä̈nen
+	name = Mikko Pitkänen
 	email = mikko@mbit.fi
 [merge]
 	tool = code
@@ -19,3 +19,7 @@
 	required = true
 [credential]
 	helper = osxkeychain
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
