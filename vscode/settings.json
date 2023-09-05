@@ -1,13 +1,22 @@
 {
+  "editor.formatOnSave": true,
+
+  "window.commandCenter": true,
+
+  "css.validate": false,
+
   "workbench.colorTheme": "One Dark Pro",
 
   "editor.tabSize": 2,
   "editor.insertSpaces": false,
-  "editor.rulers": [120],
+  "editor.rulers": [120, 240],
   "editor.cursorBlinking": "solid",
   "editor.minimap.enabled": false,
+  // "editor.fontFamily": "Monocraft",
+  // Menlo, Monaco, 'Courier New', monospace
+  // "editor.fontFamily": "Cascadia Mono",
   "editor.fontSize": 12,
-  "editor.lineHeight": 22,
+  "editor.lineHeight": 20,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.settings.editor": "json",
 
@@ -23,6 +32,7 @@
   "search.exclude": {
     "**/.DS_Store": true,
     "**/.git": true,
+    "**/.next": true,
     "**/bower_components": true,
     "**/build": true,
     "**/coverage": true,
@@ -30,8 +40,9 @@
     "**/logs": true,
     "**/package-lock.json": true,
     "**/tmp": true,
-    "node_modules": true,
-    "package-lock.json": true
+    "**/node_modules": true,
+    "**/.pnpm-debug.log": true,
+    "**/turbo-build.log": true
   },
 
   "files.exclude": {
@@ -40,7 +51,6 @@
     "**/.chrome": true,
     "**/.DS_Store": true,
     "**/.git": true,
-    "**/.gitignore": true,
     "**/.idea": true,
     "**/.svn": true,
     "**/.vstags": true,
@@ -56,7 +66,6 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.iconTheme": "vscode-icons",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -72,101 +81,65 @@
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
-  "cSpell.userWords": [
-    "antd",
-    "apibox",
-    "apise",
-    "apisi",
-    "browserslist",
-    "callgiving",
-    "ccxt",
-    "certificatemanager",
-    "cloudwatchlogs",
-    "completing",
-    "confget",
-    "confgetrsp",
-    "confinfo",
-    "confschemgetrsp",
-    "confupdrsp",
-    "DDTHH",
-    "deduplication",
-    "DOCKERHUB",
-    "evosessionid",
-    "factor",
-    "fargate",
-    "firestore",
-    "formik",
-    "gevent",
-    "HAPI",
-    "header",
-    "immer",
-    "ispresent",
-    "JSESSIONID",
-    "kcecpuc",
-    "kone",
-    "koneapi",
-    "leovegas",
-    "microservices",
-    "mikko",
-    "mosquitto",
-    "MQTT",
-    "MSSZ",
-    "nen",
-    "nextjs",
-    "nivo",
-    "parallelization",
-    "pfif",
-    "Pitk",
-    "Pitkänen",
-    "postgres",
-    "rebalance",
-    "reduxjs",
-    "relocator",
-    "robotcall",
-    "RYUK",
-    "sasl",
-    "scipy",
-    "Sider",
-    "subprotocol",
-    "talib",
-    "testcontainers",
-    "TODOOOO",
-    "unencrypted",
-    "uuidv",
-    "Vercel",
-    "wombatpowered",
-    "xlsxwriter"
-  ],
-  "terminal.integrated.defaultProfile.osx": "zsh",
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
-  },
-  "diffEditor.ignoreTrimWhitespace": false,
-  "python.showStartPage": false,
 
-  "typescript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+
   "workbench.editor.untitled.hint": "hidden",
   "editor.cursorStyle": "line",
   "editor.lineNumbers": "on",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
-
-  "window.zoomLevel": 1,
   "workbench.editor.enablePreviewFromQuickOpen": true,
   "workbench.editor.enablePreview": false,
-  "go.formatTool": "gofmt",
   "terminal.integrated.inheritEnv": false,
   "search.useGlobalIgnoreFiles": true,
   "oneDarkPro.italic": false,
-  "editor.formatOnSave": true,
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.python"
-  },
-  "cSpell.enabled": false,
-  "[terraform]": {
-    "editor.defaultFormatter": "hashicorp.terraform"
-  },
-  "go.toolsManagement.autoUpdate": true,
   "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
+  "security.workspace.trust.untrustedFiles": "open",
+  "remote.SSH.defaultExtensions": ["gitpod.gitpod-remote-ssh"],
+  "remote.SSH.configFile": "/var/folders/60/t00fw79n5r9_rz3kfdbn8zw40000gn/T/gitpod_ssh_config-72128-yqjlE3hEJvTl",
+  "editor.inlineSuggest.enabled": true,
+  "git.autofetch": true,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": true,
+    "plaintext": false,
+    "markdown": true
+  },
+  "redhat.telemetry.enabled": false,
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.formatOnType": true
+  },
+  "python.formatting.autopep8Args": [
+    "--max-line-length",
+    "120",
+    "--indent-size=2",
+    "--experimental"
+  ],
+  "githubPullRequests.pullBranch": "never",
+  "editor.stickyScroll.enabled": true,
+  "debug.allowBreakpointsEverywhere": true,
+  "playwright.reuseBrowser": true,
+  // "editor.inlayHints.enabled": "off"
+  // "workbench.colorCustomizations": {
+  //   "editor.lineHighlightBackground": "#1073cf2d",
+  //   "editor.lineHighlightBorder": "#9fced11f"
+  // },
+  // "diffEditor.wordWrap": "off",
+  // "editor.guides.indentation": false,
+  // "editor.guides.bracketPairs": false
+
+  // "rust-analyzer.inlayHints.parameterHints.enable": false,
+  // "rust-analyzer.inlayHints.typeHints.enable": false,
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "vim.foldfix": true,
+  "playwright.showTrace": false,
+  "window.zoomLevel": 1
 }

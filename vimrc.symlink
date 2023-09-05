@@ -34,3 +34,6 @@ colorscheme one
 set mouse=a
 
 set background=dark " for the dark version
+
+export COMPOSE_DOCKER_CLI_BUILD=1
+export DOCKER_BUILDKIT=1

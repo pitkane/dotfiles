@@ -1,15 +1,16 @@
-ZSH_DISABLE_COMPFIX=true
+SH_DISABLE_COMPFIX=true
 
 zmodload zsh/zprof
 
-export NVM_LAZY_LOAD=true
-export NVM_COMPLETION=true
+# export NVM_LAZY_LOAD=true
+# export NVM_COMPLETION=true
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/Users/pitkane/Library/Python/3.8/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="~/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -74,8 +75,8 @@ ZSH_THEME="dracula"
 # plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 # new
-# plugins=(osx git zsh-autosuggestions zsh-syntax-highlighting zsh-nvm docker kubectl)
-plugins=(zsh-nvm git zsh-autosuggestions zsh-syntax-highlighting docker)
+# plugins=(zsh-nvm git zsh-autosuggestions zsh-syntax-highlighting docker)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker kubectl kubectx fzf-zsh-plugin)
 
 ### Fix slowness of pastes with zsh-syntax-highlighting.zsh
 pasteinit() {
@@ -90,15 +91,11 @@ zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 ### Fix slowness of pastes
 
-# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 #
 export EDITOR='vim'
-
-compctl -g '~/.itermocil/*(:t:r)' itermocil
 
 # alias python='python3'
 
@@ -131,24 +128,10 @@ source ~/.aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-# Android SDK things
 
-export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
-export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
-export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
-
-# Java 11
-# export JAVA_HOME=$(/usr/libexec/java_home -v 11)
-
-# Java 1.8
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-
-
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # alias cat="bat"
 # alias ccat="cat"
@@ -157,10 +140,27 @@ alias ls="exa -l"
 
 source ~/.secrets
 
-# Added by serverless binary installer
-export PATH="$HOME/.serverless/bin:$PATH"
+# export PATH=/Users/pitkane/.pyenv/versions/3.7.2/bin:$PATH
 
-# export PATH="/usr/local/anaconda3/bin:$PATH"  # commented out by conda initialize
+# Created by `userpath` on 2021-01-08 09:30:17
+export PATH="$PATH:/Users/pitkane/.local/bin"
+
+# psql
+export PATH="$PATH:/usr/local/Cellar/libpq/13.1/bin/"
+
+export PATH="/opt/homebrew/bin:$PATH" 
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+export COMPOSE_DOCKER_CLI_BUILD=1
+export DOCKER_BUILDKIT=1 
+
+# pnpm
+export PNPM_HOME="/Users/pitkane/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -177,10 +177,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-export PATH=/Users/pitkane/.pyenv/versions/3.7.2/bin:$PATH
 
-# Created by `userpath` on 2021-01-08 09:30:17
-export PATH="$PATH:/Users/pitkane/.local/bin"
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/pitkane/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pitkane/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
-# psql
-export PATH="$PATH:/usr/local/Cellar/libpq/13.1/bin/"
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/pitkane/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pitkane/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

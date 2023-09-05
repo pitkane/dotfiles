@@ -1,10 +1,13 @@
 [push]
     default = simple
+		autoSetupRemote = 1
 [user]
 	name = Mikko Pitkänen
 	email = mikko@mbit.fi
 [merge]
 	tool = code
+[core]
+	ignorecase = false
 
 [diff]
     tool = Kaleidoscope
@@ -23,3 +26,10 @@
 	defaultBranch = main
 [pull]
 	rebase = false
+[rerere]
+	enabled = 1
+[safe]
+	directory = /Users/pitkane/actions-runner/_work/videosync-monorepo/videosync-monorepo
+	directory = /Users/pitkane/actions-runner/_work/videosync-monorepo/videosync-monorepo
+	directory = /Users/pitkane/actions-runner/_work/videosync-monorepo/videosync-monorepo
+	directory = /Users/pitkane/actions-runner/_work/videosync-monorepo/videosync-monorepo

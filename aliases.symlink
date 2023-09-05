@@ -8,13 +8,17 @@ alias tower='gittower'
 alias d='docker'
 alias dc='docker-compose'
 
+alias gblist='git branch --sort=-committerdate'
+
 alias aliases='vim ~/.aliases'
 alias cd..='cd ..'
 
 alias portainer='docker run -d --restart unless-stopped -p 9001:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer'
 alias watchtower='docker run -d --restart unless-stopped --name watchtower -v /var/run/docker.sock:/var/run/docker.sock v2tec/watchtower'
-alias postgres-docker='docker run --name postgres -d -p 5432:5432 --restart unless-stopped postgres'
+# alias postgres-docker='docker run --name postgres -d -p 5432:5432 --restart unless-stopped postgres'
+alias possu='docker run --name possu --restart unless-stopped -p 5432:5432 -e POSTGRES_USER=possu -e POSTGRES_PASSWORD=possu -e POSTGRES_DB=postgresDB -d postgres'
 alias redis-docker='docker run --name redis -d -p 6379:6379 --restart unless-stopped redis'
+
 
 alias gta='git for-each-ref --sort=taggerdate --format "%(refname) %(taggerdate)" refs/tags'
 
@@ -25,6 +29,25 @@ alias gr="git for-each-ref --sort=-committerdate refs/heads/ --format='%(authord
 alias remove-dstore='find . -name '.DS_Store' -type f -delete'
 alias remove-node-modules-from-current-directory='find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +'
 
-alias python='python3'
-alias pip='pip3'
+# alias python='python3'
+# alias pip='pip3'
 
+alias reset-final-cut-pro-trial='mv -v ~/Library/Application\ Support/.ffuserdata ~/.Trash'
+
+alias python='python3'
+
+alias vim="nvim"
+alias vi="nvim"
+
+# alias code="code-insiders"
+
+# function getdomains() {
+#         curl 'https://odata.domain.fi/OpenDomainData.svc/Domains()?$orderby=GrantDate%20desc&$top=500&$filter=OrganizationId%20eq%20%27'$1'%27' -s| grep -oP "<d:Name>\K([a-å]+)<"|sed 's/</.fi/g'
+# }
+
+# function domain_getdomains() {
+#         CODE=`whois $1|grep -oP "register number(.*): \K(.*)"`
+#         getdomains $CODE
+# }
+
+# alias getDomains='domain_getdomains'
