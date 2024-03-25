@@ -75,5 +75,13 @@
   {
     "key": "cmd+numpad0",
     "command": "-workbench.action.zoomReset"
+  },
+  {
+    "key": "ctrl+alt+cmd+right",
+    "command": "editor.action.fontZoomIn"
+  },
+  {
+    "key": "ctrl+alt+cmd+left",
+    "command": "editor.action.fontZoomOut"
   }
 ]

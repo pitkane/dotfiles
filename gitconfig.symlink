@@ -27,9 +27,17 @@
 [pull]
 	rebase = false
 [rerere]
-	enabled = 1
+	enabled = true
 [safe]
 	directory = /Users/pitkane/actions-runner/_work/videosync-monorepo/videosync-monorepo
 	directory = /Users/pitkane/actions-runner/_work/videosync-monorepo/videosync-monorepo
 	directory = /Users/pitkane/actions-runner/_work/videosync-monorepo/videosync-monorepo
 	directory = /Users/pitkane/actions-runner/_work/videosync-monorepo/videosync-monorepo
+[alias]
+  bb = ! ~/.dotfiles/scripts/better-git-branch.sh
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[maintenance]
+	repo = /Users/pitkane/code/inderes/ir

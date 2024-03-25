@@ -129,6 +129,11 @@ source ~/.aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
+# https://superuser.com/questions/357355/how-can-i-get-controlleft-arrow-to-go-back-one-word-in-iterm2
+bindkey -e
+bindkey '\e\e[C' forward-word
+bindkey '\e\e[D' backward-word 
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -145,22 +150,15 @@ source ~/.secrets
 # Created by `userpath` on 2021-01-08 09:30:17
 export PATH="$PATH:/Users/pitkane/.local/bin"
 
+# deno
+export DENO_INSTALL="/Users/pitkane/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
 # psql
 export PATH="$PATH:/usr/local/Cellar/libpq/13.1/bin/"
 
 export PATH="/opt/homebrew/bin:$PATH" 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-
-export COMPOSE_DOCKER_CLI_BUILD=1
-export DOCKER_BUILDKIT=1 
-
-# pnpm
-export PNPM_HOME="/Users/pitkane/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -177,9 +175,27 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# inderes-screener needs these
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+export PUPPETEER_EXECUTABLE_PATH=`which chromium`
+
+# bun completions
+[ -s "/Users/pitkane/.bun/_bun" ] && source "/Users/pitkane/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/pitkane/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pitkane/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/pitkane/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pitkane/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# pnpm
+export PNPM_HOME="/Users/pitkane/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

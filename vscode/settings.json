@@ -82,6 +82,10 @@
     "editor.defaultFormatter": "vscode.html-language-features"
   },
 
+  "files.associations": {
+    "*.json": "jsonc"
+  },
+
   "terminal.integrated.defaultProfile.osx": "zsh",
 
   "workbench.editor.untitled.hint": "hidden",
@@ -141,5 +145,6 @@
   },
   "vim.foldfix": true,
   "playwright.showTrace": false,
+  "diffEditor.hideUnchangedRegions.enabled": true,
   "window.zoomLevel": 1
 }

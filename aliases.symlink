@@ -5,8 +5,7 @@ alias rn="react-native"
 alias ls="ls -GFlsh"
 alias rm='rm -i'
 alias tower='gittower'
-alias d='docker'
-alias dc='docker-compose'
+alias d='pnpm dev'
 
 alias gblist='git branch --sort=-committerdate'
 
