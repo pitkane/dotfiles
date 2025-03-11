@@ -6,6 +6,7 @@ alias ls="ls -GFlsh"
 alias rm='rm -i'
 alias tower='gittower'
 alias d='pnpm dev'
+alias c='cargo run'
 
 alias gblist='git branch --sort=-committerdate'
 
@@ -17,7 +18,7 @@ alias watchtower='docker run -d --restart unless-stopped --name watchtower -v /v
 # alias postgres-docker='docker run --name postgres -d -p 5432:5432 --restart unless-stopped postgres'
 alias possu='docker run --name possu --restart unless-stopped -p 5432:5432 -e POSTGRES_USER=possu -e POSTGRES_PASSWORD=possu -e POSTGRES_DB=postgresDB -d postgres'
 alias redis-docker='docker run --name redis -d -p 6379:6379 --restart unless-stopped redis'
-
+alias valkey-docker='docker run --name valkey -d -p 6379:6379 --restart unless-stopped valkey/valkey'
 
 alias gta='git for-each-ref --sort=taggerdate --format "%(refname) %(taggerdate)" refs/tags'
 
@@ -38,15 +39,8 @@ alias python='python3'
 alias vim="nvim"
 alias vi="nvim"
 
-# alias code="code-insiders"
+# Cursor
+alias c="open $1 -a \"Cursor\""
 
-# function getdomains() {
-#         curl 'https://odata.domain.fi/OpenDomainData.svc/Domains()?$orderby=GrantDate%20desc&$top=500&$filter=OrganizationId%20eq%20%27'$1'%27' -s| grep -oP "<d:Name>\K([a-å]+)<"|sed 's/</.fi/g'
-# }
-
-# function domain_getdomains() {
-#         CODE=`whois $1|grep -oP "register number(.*): \K(.*)"`
-#         getdomains $CODE
-# }
-
-# alias getDomains='domain_getdomains'
+# VSCode
+alias v="open $1 -a \"Visual Studio Code\""

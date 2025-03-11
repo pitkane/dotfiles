@@ -2,13 +2,13 @@
     default = simple
 		autoSetupRemote = 1
 [user]
-	name = Mikko Pitkänen
+	name = Mikko Kohtala
 	email = mikko@mbit.fi
 [merge]
 	tool = code
 [core]
 	ignorecase = false
-
+  pager = delta
 [diff]
     tool = Kaleidoscope
 [difftool "Kaleidoscope"]
@@ -28,11 +28,6 @@
 	rebase = false
 [rerere]
 	enabled = true
-[safe]
-	directory = /Users/pitkane/actions-runner/_work/videosync-monorepo/videosync-monorepo
-	directory = /Users/pitkane/actions-runner/_work/videosync-monorepo/videosync-monorepo
-	directory = /Users/pitkane/actions-runner/_work/videosync-monorepo/videosync-monorepo
-	directory = /Users/pitkane/actions-runner/_work/videosync-monorepo/videosync-monorepo
 [alias]
   bb = ! ~/.dotfiles/scripts/better-git-branch.sh
 [column]
